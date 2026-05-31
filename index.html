@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Squamish Estuary — Skwelwil'em, a Field Guide to Paddling the Birds' Water</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A local's field guide to paddling Skwelwil'em, the Squamish Estuary. Tides, wind, the herons and wintering eagles, where to put in, and how to do it without wrecking the place. Part of Sea to Sky Trails.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4f1e9;
+    --paper-deep: #e7e3d6;
+    --ink: #1a1d1c;
+    --ink-soft: #3a3f3c;
+    --ink-mute: #71746c;
+    --rule: #c7c8ba;
+    /* Estuarine palette — distinct from the lake pages' moss/rust */
+    --heron: #3d5a6c;     /* tidal slate blue */
+    --sedge: #8a7d33;     /* dry estuary-grass gold */
+    --silt: #9a8a6c;      /* mudflat */
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper); color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 17.5px; line-height: 1.7;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(26,29,28,0.025) 1px, transparent 1px);
+    background-size: 3px 3px; z-index: 1; opacity: 0.6;
+  }
+  ::selection { background: var(--heron); color: var(--paper); }
+
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.2s, color 0.2s; }
+  a:hover { border-bottom-color: var(--ink); }
+
+  h1, h2, h3, h4, .display {
+    font-family: "Fraunces", "Times New Roman", serif; color: var(--ink);
+    font-weight: 400; line-height: 1.04; letter-spacing: -0.02em; margin: 0;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  h1 { font-size: clamp(3.2rem, 9vw, 7rem); letter-spacing: -0.028em; }
+  h2 { font-size: clamp(2.05rem, 4.6vw, 3.35rem); letter-spacing: -0.025em; }
+  h3 { font-size: 1.5rem; font-weight: 500; line-height: 1.22; letter-spacing: -0.012em; }
+  em, .italic { font-style: italic; font-weight: 400; }
+
+  p { margin: 0 0 1.15rem; color: var(--ink-soft); font-size: 1.075rem; line-height: 1.72; }
+  p.lead {
+    font-family: "Fraunces", serif; font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    line-height: 1.45; color: var(--ink); font-weight: 400; letter-spacing: -0.01em; margin-bottom: 2rem;
+  }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 2.25rem; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.25rem; }
+
+  .eyebrow {
+    font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; font-weight: 500; color: var(--ink-mute);
+    display: inline-flex; align-items: center; gap: 0.8rem;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--ink-mute); }
+
+  /* NAV */
+  nav.top { position: sticky; top: 0; z-index: 50; background: rgba(244,241,233,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+  nav.top .inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.25rem; }
+  .mark { display: flex; align-items: center; gap: 0.75rem; font-family: "Fraunces", serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); border: none; }
+  .mark svg { color: var(--heron); }
+  .mark-text { line-height: 1; }
+  .mark-text small { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.15rem; }
+  nav.top .links { display: flex; gap: 2rem; }
+  nav.top .links a { font-family: "Inter", sans-serif; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border: none; color: var(--ink-soft); }
+  nav.top .links a:hover { color: var(--heron); }
+  @media (max-width: 720px) { nav.top .links { display: none; } }
+
+  /* COORD RIBBON */
+  .coords { background: var(--paper-deep); border-bottom: 1px solid var(--rule); font-family: "Inter", monospace; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--ink-mute); padding: 0.55rem 0; }
+  .coords .inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; gap: 2rem; padding: 0 2.25rem; flex-wrap: wrap; }
+  .coords span + span { color: var(--ink-soft); }
+
+  /* HERO */
+  header.hero { padding: 6.5rem 0 4.5rem; position: relative; overflow: hidden; }
+  header.hero .wrap { position: relative; z-index: 2; }
+  header.hero .eyebrow { margin-bottom: 2.75rem; }
+  header.hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      radial-gradient(ellipse 900px 260px at 50% 70%, transparent 32%, rgba(61,90,108,0.05) 33%, transparent 34%),
+      radial-gradient(ellipse 1150px 330px at 50% 70%, transparent 38%, rgba(61,90,108,0.04) 39%, transparent 40%),
+      radial-gradient(ellipse 1400px 400px at 50% 70%, transparent 44%, rgba(61,90,108,0.03) 45%, transparent 46%);
+  }
+  header.hero h1 { max-width: 15ch; margin-bottom: 2rem; }
+  header.hero h1 em { color: var(--heron); }
+  header.hero .deck {
+    max-width: 58ch; font-family: "Fraunces", serif; font-style: italic; font-weight: 400;
+    font-size: clamp(1.2rem, 1.9vw, 1.55rem); line-height: 1.5; color: var(--ink); margin-bottom: 3.5rem;
+  }
+  header.hero .meta { display: flex; flex-wrap: wrap; gap: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  header.hero .meta .item .label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 0.4rem; }
+  header.hero .meta .item .value { font-family: "Fraunces", serif; font-weight: 400; font-size: 1.05rem; color: var(--ink); }
+
+  .estuary-art { position: absolute; left: 0; right: 0; bottom: 0; height: 300px; pointer-events: none; z-index: 1; opacity: 0.9; }
+  .estuary-art svg { width: 100%; height: 100%; display: block; }
+
+  /* SECTIONS */
+  section { padding: 6.5rem 0; position: relative; }
+  section.tight { padding: 4.5rem 0; }
+  .rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
+  .section-head { max-width: 720px; margin-bottom: 3.5rem; }
+  .section-head .eyebrow { margin-bottom: 1.5rem; }
+  .section-head h2 { margin-bottom: 1.25rem; }
+
+  /* MANIFESTO */
+  .manifesto-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: start; }
+  @media (max-width: 900px) { .manifesto-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .manifesto p:first-of-type::first-letter { font-family: "Fraunces", serif; font-size: 4.5rem; font-weight: 300; line-height: 0.85; float: left; padding: 0.4rem 0.7rem 0 0; color: var(--heron); }
+  blockquote.pull { margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-family: "Fraunces", serif; font-style: italic; font-size: 1.45rem; line-height: 1.5; color: var(--ink); font-weight: 300; }
+  blockquote.pull cite { display: block; margin-top: 1rem; font-style: normal; font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; }
+  .manifesto-art { aspect-ratio: 4/5; background: var(--paper-deep); display: grid; place-items: center; color: var(--heron); border-radius: 2px; }
+  .manifesto-art svg { width: 75%; max-width: 300px; height: auto; }
+
+  /* FIELD MARKS (birds) */
+  .field { background: var(--paper-deep); }
+  .marks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 1rem; }
+  @media (max-width: 900px) { .marks { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+  @media (max-width: 520px) { .marks { grid-template-columns: 1fr 1fr; } }
+  .mark-card { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+  .mark-card .art { height: 88px; color: var(--heron); margin-bottom: 1rem; opacity: 0.85; }
+  .mark-card .art svg { height: 88px; width: auto; }
+  .mark-card h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
+  .mark-card .latin { font-family: "Fraunces", serif; font-style: italic; color: var(--ink-mute); font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .mark-card p { font-size: 0.95rem; line-height: 1.55; margin: 0; }
+  .mark-card .season { display: inline-block; margin-top: 0.7rem; font-family: "Inter", sans-serif; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--sedge); }
+
+  /* PRACTICAL (tide + wind) */
+  .practical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  @media (max-width: 820px) { .practical-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .pcard { border: 1px solid var(--rule); border-radius: 2px; padding: 2.25rem; background: var(--paper); }
+  .pcard .pn { font-family: "Fraunces", serif; font-style: italic; color: var(--heron); font-size: 1rem; margin-bottom: 0.75rem; display: block; }
+  .pcard h3 { margin-bottom: 1rem; }
+  .pcard p { font-size: 1rem; }
+  .pcard p:last-child { margin-bottom: 0; }
+
+  /* RULES list */
+  ul.tenets { list-style: none; padding: 0; margin: 2rem 0 0; }
+  ul.tenets li { padding: 1.1rem 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 32px 1fr; gap: 1rem; align-items: baseline; }
+  ul.tenets li:last-child { border-bottom: 1px solid var(--rule); }
+  ul.tenets li .n { font-family: "Fraunces", serif; font-style: italic; color: var(--ink-mute); font-size: 0.95rem; }
+  ul.tenets li .t { font-family: "Inter", sans-serif; font-size: 1rem; color: var(--ink); font-weight: 600; letter-spacing: -0.005em; }
+  ul.tenets li .t small { display: block; font-weight: 400; color: var(--ink-soft); margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.55; }
+
+  /* RENTAL FUNNEL */
+  .funnel { background: var(--heron); color: var(--paper); }
+  .funnel .eyebrow { color: rgba(244,241,233,0.7); }
+  .funnel .eyebrow::before { background: rgba(244,241,233,0.5); }
+  .funnel h2 { color: var(--paper); }
+  .funnel p { color: rgba(244,241,233,0.92); }
+  .funnel .grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
+  @media (max-width: 900px) { .funnel .grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .funnel .ops-art { aspect-ratio: 1/1; display: grid; place-items: center; border: 1px solid rgba(244,241,233,0.25); border-radius: 2px; color: var(--paper); }
+  .funnel .ops-art svg { width: 62%; max-width: 280px; }
+  .pillish { display: inline-block; margin-top: 1.75rem; padding: 0.8rem 1.6rem; border: 1px solid var(--paper); font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--paper); border-radius: 999px; transition: background 0.2s, color 0.2s; }
+  .pillish:hover { background: var(--paper); color: var(--heron); border-color: var(--paper); }
+
+  /* COLOPHON */
+  .colophon-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 3rem; }
+  @media (max-width: 900px) { .colophon-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  .colophon h4 { font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 1rem; }
+  .colophon ul { list-style: none; padding: 0; margin: 0; }
+  .colophon ul li { margin-bottom: 0.5rem; font-size: 0.92rem; color: var(--ink-soft); }
+  .colophon ul li a { border: none; }
+  .colophon ul li a:hover { color: var(--heron); }
+
+  footer.foot { padding: 3rem 0; border-top: 1px solid var(--rule); font-size: 0.78rem; color: var(--ink-mute); }
+  footer.foot .inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  footer.foot em { font-family: "Fraunces", serif; font-weight: 400; }
+
+  .line-art { stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="top">
+  <div class="inner">
+    <a href="#" class="mark">
+      <svg width="34" height="28" viewBox="0 0 34 28" class="line-art" aria-hidden="true">
+        <!-- heron in flight -->
+        <path d="M2 20 Q10 8 17 14 Q24 8 32 20"/>
+        <path d="M17 14 L17 22"/>
+        <path d="M17 22 L21 26"/>
+      </svg>
+      <span class="mark-text">
+        The Squamish Estuary
+        <small>Skwelwil'em · est. 2026</small>
+      </span>
+    </a>
+    <div class="links">
+      <a href="#the-place">The Place</a>
+      <a href="#birds">The Birds</a>
+      <a href="#paddle">How to Paddle It</a>
+      <a href="#rent">Rent a Canoe</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== COORD RIBBON ===================== -->
+<div class="coords">
+  <div class="inner">
+    <span>49° 41′ N &nbsp;·&nbsp; 123° 10′ W</span>
+    <span>Volume I &nbsp;·&nbsp; No. 07</span>
+    <span>Tidal &mdash; Plan for High Water</span>
+    <span>Skwelwil'em, Squamish BC</span>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">No. 07 &nbsp;·&nbsp; Head of Howe Sound, British Columbia</span>
+    <h1>The water<br>the <em>birds</em><br>kept for themselves.</h1>
+    <p class="deck">Where the Squamish River fans out into Howe Sound, the tide breathes in and out of a maze of grassy channels — Skwelwil'em, a provincial wildlife refuge and the gentlest, most local paddle in the whole corridor. Herons in the reeds. Eagles in winter. The Chief watching the whole thing. You just have to read the tide.</p>
+
+    <div class="meta">
+      <div class="item"><div class="label">Designation</div><div class="value">Wildlife Management Area</div></div>
+      <div class="item"><div class="label">Difficulty</div><div class="value">Easy &mdash; if you time it</div></div>
+      <div class="item"><div class="label">Access</div><div class="value">In town · no crossing</div></div>
+      <div class="item"><div class="label">Best At</div><div class="value">Morning, high tide</div></div>
+    </div>
+  </div>
+
+  <!-- Estuary scene: mountains, tidal channels, a heron, the Chief -->
+  <div class="estuary-art" aria-hidden="true">
+    <svg viewBox="0 0 1400 300" preserveAspectRatio="xMidYEnd slice">
+      <g class="line-art" stroke-width="1.1">
+        <!-- distant peaks -->
+        <path opacity="0.3" d="M0 150 L120 80 L200 120 L300 60 L420 130 L520 90 L640 140 L760 95 L880 145 L1000 100 L1120 150 L1240 110 L1340 150 L1400 130"/>
+        <!-- the Stawamus Chief block, right of centre -->
+        <path opacity="0.55" d="M980 175 L985 120 Q990 108 1010 106 L1075 104 Q1095 104 1098 124 L1102 175"/>
+        <!-- treeline ridge -->
+        <path opacity="0.6" d="M0 195 L80 165 L160 188 L260 155 L360 190 L480 160 L600 192 L720 158 L840 190 L960 170 L1100 192 L1240 168 L1340 190 L1400 178"/>
+        <!-- tidal flat channels -->
+        <path d="M0 250 Q220 235 360 252 T760 250 T1160 252 T1400 248"/>
+        <path opacity="0.6" d="M0 268 Q260 256 460 270 T900 266 T1400 268"/>
+        <path opacity="0.4" d="M120 285 Q420 276 720 286 T1300 282"/>
+        <!-- sedge tufts -->
+        <g opacity="0.7">
+          <path d="M210 250 l-3 -14 M214 250 l0 -16 M218 250 l3 -13"/>
+          <path d="M520 248 l-3 -13 M524 248 l0 -15 M528 248 l3 -12"/>
+          <path d="M1010 250 l-3 -13 M1014 250 l0 -15 M1018 250 l3 -12"/>
+        </g>
+        <!-- great blue heron, standing -->
+        <g transform="translate(740 222)">
+          <path d="M0 28 L0 8"/>                <!-- leg -->
+          <path d="M0 8 Q-2 0 8 -2"/>           <!-- back to head -->
+          <path d="M8 -2 L18 1"/>               <!-- beak -->
+          <path d="M0 8 Q6 14 14 12"/>          <!-- folded wing -->
+          <path d="M0 28 L-3 32 M0 28 L3 32"/>  <!-- foot -->
+        </g>
+        <!-- a far heron in flight -->
+        <g transform="translate(300 150)" opacity="0.5">
+          <path d="M0 6 Q8 -4 14 2 Q20 -4 28 6"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<hr class="rule" />
+
+<!-- ===================== THE PLACE ===================== -->
+<section id="the-place" class="manifesto">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ I &nbsp;·&nbsp; The Place</span>
+      <h2>A river losing itself in the sea, slowly.</h2>
+    </div>
+
+    <div class="manifesto-grid">
+      <div class="manifesto">
+        <p>An estuary is the long goodbye between a river and the ocean — the place where the Squamish River stops being a river and hasn&rsquo;t quite become the sea. Twice a day the tide pushes saltwater up into the grass, and twice a day it drains back out, and in between there is a shifting maze of channels, mudflats, sedge meadows, and still green water that holds the reflection of Mount Garibaldi like it owes it money.</p>
+        <p>The Sḵwx̱wú7mesh people call it <em>Skwelwil&rsquo;em</em>. In 2007 the Province made it official — the Skwelwil&rsquo;em Squamish Estuary Wildlife Management Area — because the birds and fish here matter at a scale bigger than Squamish. It is one of the most important estuaries on the south coast, and somehow it sits a five-minute drive from a coffee shop.</p>
+        <blockquote class="pull">
+          &ldquo;Everyone drives to Squamish to look up at the Chief. The estuary is the one place that asks you to look down — into the reeds, at the waterline, at what the tide left behind.&rdquo;
+          <cite>House style, vol. I</cite>
+        </blockquote>
+        <p>You do not need a roof rack, a 4&times;4, or a river crossing to paddle it. That is the whole point. This is the corridor&rsquo;s beginner water — flat, close, forgiving — provided you respect the two things that run the show out here: the <em>tide</em> and the <em>wind</em>. Get those right and it&rsquo;s the easiest, most beautiful hour you&rsquo;ll spend on the water all summer.</p>
+      </div>
+
+      <div class="manifesto-art">
+        <!-- single-line: reflected peak in still estuary water -->
+        <svg viewBox="0 0 240 300" class="line-art" aria-hidden="true">
+          <!-- peak -->
+          <path d="M20 140 L70 60 L100 95 L140 40 L185 110 L220 80"/>
+          <!-- waterline -->
+          <path d="M10 150 L230 150"/>
+          <!-- reflection -->
+          <path opacity="0.4" d="M20 160 L70 240 L100 205 L140 260 L185 190 L220 220"/>
+          <!-- ripples -->
+          <path opacity="0.5" d="M30 270 Q120 280 210 270"/>
+          <path opacity="0.35" d="M55 285 Q120 292 185 285"/>
+          <!-- reeds foreground -->
+          <g opacity="0.8">
+            <path d="M30 150 l-4 -28 M35 150 l0 -32 M40 150 l4 -26"/>
+            <path d="M200 150 l-4 -24 M205 150 l0 -28 M210 150 l4 -22"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== THE BIRDS ===================== -->
+<section id="birds" class="field">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ II &nbsp;·&nbsp; Field Marks</span>
+      <h2>Who you&rsquo;ll share the channel with.</h2>
+      <p class="lead" style="margin-top:1.5rem;color:var(--ink-soft);">A canoe is the quietest hide ever invented. Paddle slow, stop talking, and the estuary forgets you&rsquo;re there. Keep your distance — a bird that flushes is a bird you&rsquo;ve cost a meal.</p>
+    </div>
+
+    <div class="marks">
+      <div class="mark-card">
+        <div class="art">
+          <svg viewBox="0 0 80 88" class="line-art" aria-hidden="true">
+            <path d="M40 80 L40 40"/>
+            <path d="M40 40 Q36 22 50 18"/>
+            <path d="M50 18 L66 22"/>
+            <path d="M40 44 Q48 56 60 52"/>
+            <path d="M40 80 L34 86 M40 80 L46 86"/>
+            <path d="M46 16 L52 8" opacity="0.7"/>
+          </svg>
+        </div>
+        <h3>Great Blue Heron</h3>
+        <div class="latin">Ardea herodias</div>
+        <p>The estuary&rsquo;s landlord. Stands motionless in the shallows, then strikes. A protected species here — give it a wide, slow berth.</p>
+        <span class="season">Year-round</span>
+      </div>
+
+      <div class="mark-card">
+        <div class="art">
+          <svg viewBox="0 0 80 88" class="line-art" aria-hidden="true">
+            <circle cx="40" cy="30" r="12"/>
+            <path d="M34 26 L28 24" />
+            <path d="M40 42 L40 70"/>
+            <path d="M40 50 Q22 54 14 74"/>
+            <path d="M40 50 Q58 54 66 74"/>
+            <path d="M40 70 L34 80 M40 70 L46 80"/>
+          </svg>
+        </div>
+        <h3>Bald Eagle</h3>
+        <div class="latin">Haliaeetus leucocephalus</div>
+        <p>In December–February they pour in by the hundreds to feed on spawning salmon. Winter paddles come with an audience overhead.</p>
+        <span class="season">Dec – Feb peak</span>
+      </div>
+
+      <div class="mark-card">
+        <div class="art">
+          <svg viewBox="0 0 80 88" class="line-art" aria-hidden="true">
+            <path d="M20 60 Q24 44 40 44 Q60 44 62 60"/>
+            <path d="M40 44 Q40 30 52 28"/>
+            <path d="M52 28 L62 30"/>
+            <path d="M20 60 Q40 70 62 60"/>
+            <path d="M28 62 L26 72 M52 62 L54 72"/>
+          </svg>
+        </div>
+        <h3>Trumpeter Swan</h3>
+        <div class="latin">Cygnus buccinator</div>
+        <p>Winters on the flats in loose white rafts. The largest native waterfowl in North America — you&rsquo;ll hear them before you see them.</p>
+        <span class="season">Winter</span>
+      </div>
+
+      <div class="mark-card">
+        <div class="art">
+          <svg viewBox="0 0 80 88" class="line-art" aria-hidden="true">
+            <path d="M16 64 Q40 54 64 64"/>
+            <path d="M22 60 Q40 30 58 60"/>
+            <path d="M40 38 L40 30"/>
+            <circle cx="40" cy="26" r="3"/>
+            <path d="M14 70 Q40 78 66 70" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3>Harbour Seal</h3>
+        <div class="latin">Phoca vitulina</div>
+        <p>Not a bird, but they follow the tide up the channels and pop a curious head up beside the canoe. Look, don&rsquo;t feed, don&rsquo;t chase.</p>
+        <span class="season">Year-round</span>
+      </div>
+    </div>
+
+    <p style="margin-top:2.5rem;max-width:64ch;font-size:0.95rem;color:var(--ink-mute);">Also out here, in season: turkey vultures riding the thermals off the Chief, kingfishers rattling between snags, western grebes, and — for the very lucky and very quiet — a peregrine falcon or a green heron, both species at risk. This is their nursery and their pantry. We&rsquo;re guests.</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== HOW TO PADDLE IT ===================== -->
+<section id="paddle">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ III &nbsp;·&nbsp; How to Paddle It</span>
+      <h2>The tide and the wind run this place. Not you.</h2>
+      <p class="lead" style="margin-top:1.5rem;color:var(--ink-soft);">Two variables decide whether the estuary is a dream or a slog. Both are free to check the night before. Neither forgives being ignored.</p>
+    </div>
+
+    <div class="practical-grid">
+      <div class="pcard">
+        <span class="pn">i.</span>
+        <h3>Go on a high, rising tide.</h3>
+        <p>At low tide the channels drain to mud and you&rsquo;ll be dragging a canoe across a flat. Launch within an hour or two of high tide so there&rsquo;s water in the grass, and aim to be heading back <em>as the tide comes in</em> — the flood carries you home instead of stranding you.</p>
+        <p style="font-size:0.9rem;color:var(--ink-mute);margin-top:1rem;">Check any Howe Sound / Squamish tide table before you go. A 4&nbsp;m+ high is comfortable; a low high tide is a short window.</p>
+      </div>
+
+      <div class="pcard">
+        <span class="pn">ii.</span>
+        <h3>Beat the wind. Paddle the morning.</h3>
+        <p>Squamish isn&rsquo;t the kiteboarding capital of Canada by accident. Most summer afternoons a strong inflow wind builds up the sound and turns flat water into whitecaps and hard work. Mornings and evenings are glass. Be off the water before the afternoon wind fills in.</p>
+        <p style="font-size:0.9rem;color:var(--ink-mute);margin-top:1rem;">If there are kites and sails out on the Spit, that&rsquo;s your cue the wind&rsquo;s up. Stay clear of the windsports zone — they have right of way and a lot more speed.</p>
+      </div>
+
+      <div class="pcard">
+        <span class="pn">iii.</span>
+        <h3>Stay in the channels. Don&rsquo;t cut the grass.</h3>
+        <p>The sedge meadows are nesting and rearing habitat, not shortcuts. Keep to open water and the main channels, give every bird a buffer, and never push into the reeds to &ldquo;get a better look.&rdquo; The better look is through patience, from a distance.</p>
+      </div>
+
+      <div class="pcard">
+        <span class="pn">iv.</span>
+        <h3>This is flatwater — but it&rsquo;s still cold salt water.</h3>
+        <p>Lifejackets on, not under the seat. Howe Sound is cold year-round and the wind can come up fast. A canoe with real freeboard handles a wind-chop the way a $99 inflatable pool boat simply cannot — which matters more here than on any pond.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== CONSERVATION ===================== -->
+<section id="rules" class="field tight">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ IV &nbsp;·&nbsp; House Rules of a Refuge</span>
+      <h2>Leave it better than the tide does.</h2>
+    </div>
+    <ul class="tenets" style="max-width:760px;">
+      <li><span class="n">i.</span><span class="t">Distance is respect. <small>If a bird changes what it&rsquo;s doing because of you, you&rsquo;re too close. Back off and drift.</small></span></li>
+      <li><span class="n">ii.</span><span class="t">Dogs under control. <small>A loose dog in an estuary is a flushed flock and a failed nest. Leashed, in the boat, or left at home.</small></span></li>
+      <li><span class="n">iii.</span><span class="t">Pack the tide line out. <small>Whatever floats in your canoe floats back out. The flats catch everything and hold it.</small></span></li>
+      <li><span class="n">iv.</span><span class="t">It&rsquo;s a Wildlife Management Area, not a park. <small>Seasonal closures and sensitive zones exist for a reason. Honour posted signage.</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== RENT A CANOE (FUNNEL) ===================== -->
+<section id="rent" class="funnel">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="eyebrow">§ V &nbsp;·&nbsp; The Easiest Way Onto It</span>
+        <h2 style="margin-top:1.5rem;">Borrow a real canoe. We&rsquo;ll meet you at the water.</h2>
+        <p style="margin-top:1.5rem;">The estuary is the perfect first paddle — flat, close to town, and stunning — which is exactly why it deserves a proper canoe rather than a flimsy inflatable that the afternoon Squamish wind will treat like a kite. <strong style="color:var(--paper);">Squamish Canoe Rental</strong> delivers a stable, ready-to-go canoe — paddles, lifejackets, bailer, and whistle included — so all you have to do is read the tide and show up.</p>
+        <p>Up to three paddlers per canoe. Locally owned, five-star reviewed, and run by people who actually paddle this estuary and can tell you exactly when the tide&rsquo;s right.</p>
+        <a href="https://squamishcanoerental.com/" class="pillish">Rent a canoe at squamishcanoerental.com</a>
+      </div>
+      <div class="ops-art">
+        <svg viewBox="0 0 320 320" class="line-art" aria-hidden="true">
+          <path d="M30 110 L80 60 L120 100 L160 45 L210 90 L250 65 L290 105" opacity="0.4"/>
+          <path d="M0 200 Q160 214 320 200" opacity="0.5"/>
+          <path d="M0 222 Q160 233 320 222" opacity="0.35"/>
+          <path d="M90 196 Q160 222 230 196"/>
+          <path d="M90 196 Q160 208 230 196"/>
+          <circle cx="160" cy="156" r="9"/>
+          <path d="M160 165 L160 196"/>
+          <line x1="130" y1="143" x2="195" y2="211"/>
+          <path d="M198 208 L208 223 L213 214 Z"/>
+          <!-- a heron flying past the sun -->
+          <g transform="translate(245 78)" opacity="0.6"><path d="M0 6 Q9 -4 15 2 Q21 -4 30 6"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===================== COLOPHON ===================== -->
+<section id="contact" class="colophon tight">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">§ VI &nbsp;·&nbsp; Colophon</span>
+      <h2>Notes, corrections, &amp; the right tide.</h2>
+    </div>
+    <div class="colophon-grid">
+      <div>
+        <h4>The Guide</h4>
+        <p style="font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.05rem;color:var(--ink);max-width:36ch;line-height:1.5;">
+          A field note from the head of Howe Sound, written by people who paddle Skwelwil&rsquo;em on the morning tide. Part of Sea to Sky Trails.
+        </p>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <ul>
+          <li><a href="#the-place">The estuary</a></li>
+          <li><a href="#birds">Field marks</a></li>
+          <li><a href="#paddle">Tide &amp; wind</a></li>
+          <li><a href="#rules">House rules</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Go Paddle</h4>
+        <ul>
+          <li><a href="https://squamishcanoerental.com/">Rent a canoe</a></li>
+          <li><a href="https://seatoskytrails.com/">More Sea to Sky guides</a></li>
+          <li><a href="https://squamishwatertaxi.com/">Squamish Water Taxi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Respect It</h4>
+        <ul>
+          <li><a href="https://www2.gov.bc.ca/gov/content/environment/plants-animals-ecosystems/wildlife/wildlife-habitats/conservation-lands/wma/wmas-list/skwelwil-em-squamish-estuary">BC WMA — Skwelwil'em</a></li>
+          <li><a href="https://www.squamishwatershed.com/about-the-estuary.html">Squamish Watershed Society</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap inner">
+    <div><em>The Squamish Estuary</em> &middot; Skwelwil&rsquo;em &middot; Volume I, No. 07, 2026 &middot; Published in Sḵwx̱wú7mesh territory.</div>
+    <div>&copy; 2026 · Part of Sea to Sky Trails · Set in Fraunces &amp; Inter.</div>
+  </div>
+</footer>
+
+</body>
+</html>
