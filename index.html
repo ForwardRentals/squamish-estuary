@@ -10,48 +10,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f4f1e9;
-    --paper-deep: #e7e3d6;
-    --ink: #1a1d1c;
-    --ink-soft: #3a3f3c;
-    --ink-mute: #71746c;
-    --rule: #c7c8ba;
-    /* Estuarine palette — distinct from the lake pages' moss/rust */
-    --heron: #3d5a6c;     /* tidal slate blue */
-    --sedge: #8a7d33;     /* dry estuary-grass gold */
-    --silt: #9a8a6c;      /* mudflat */
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --sage: #eef1ea;
+    --line: #e3e1d8;
+    --ink: #22261f;
+    --ink-soft: #4c5245;
+    --mute: #8b9083;
+    --pine: #3d5a3f;
+    --pine-deep: #2c4230;
+    --sun: #c98f2d;
   }
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    background: var(--paper); color: var(--ink);
+    background: var(--bg); color: var(--ink);
     font-family: "Inter", system-ui, -apple-system, sans-serif;
-    font-size: 17.5px; line-height: 1.7;
+    font-size: 17px; line-height: 1.65;
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
-  body::before {
-    content: ""; position: fixed; inset: 0; pointer-events: none;
-    background-image: radial-gradient(rgba(26,29,28,0.025) 1px, transparent 1px);
-    background-size: 3px 3px; z-index: 1; opacity: 0.6;
-  }
-  ::selection { background: var(--heron); color: var(--paper); }
+  ::selection { background: var(--pine); color: #fff; }
 
-  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.2s, color 0.2s; }
-  a:hover { border-bottom-color: var(--ink); }
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.2s, color 0.2s; }
+  a:hover { border-bottom-color: var(--pine); color: var(--pine); }
 
   h1, h2, h3, h4, .display {
     font-family: "Fraunces", "Times New Roman", serif; color: var(--ink);
-    font-weight: 400; line-height: 1.04; letter-spacing: -0.02em; margin: 0;
-    font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0;
+    font-variation-settings: "opsz" 144;
   }
-  h1 { font-size: clamp(3.2rem, 9vw, 7rem); letter-spacing: -0.028em; }
-  h2 { font-size: clamp(2.05rem, 4.6vw, 3.35rem); letter-spacing: -0.025em; }
-  h3 { font-size: 1.5rem; font-weight: 500; line-height: 1.22; letter-spacing: -0.012em; }
+  h1 { font-size: clamp(3rem, 8vw, 6.2rem); letter-spacing: -0.025em; }
+  h2 { font-size: clamp(1.9rem, 4.2vw, 3.1rem); letter-spacing: -0.022em; }
+  h3 { font-size: 1.4rem; font-weight: 600; line-height: 1.22; letter-spacing: -0.012em; }
   em, .italic { font-style: italic; font-weight: 400; }
 
-  p { margin: 0 0 1.15rem; color: var(--ink-soft); font-size: 1.075rem; line-height: 1.72; }
+  p { margin: 0 0 1.15rem; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.68; }
   p.lead {
-    font-family: "Fraunces", serif; font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    font-family: "Fraunces", serif; font-size: clamp(1.3rem, 2.1vw, 1.65rem);
     line-height: 1.45; color: var(--ink); font-weight: 400; letter-spacing: -0.01em; margin-bottom: 2rem;
   }
 
@@ -59,123 +54,127 @@
   .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.25rem; }
 
   .eyebrow {
-    font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em;
-    text-transform: uppercase; font-weight: 500; color: var(--ink-mute);
-    display: inline-flex; align-items: center; gap: 0.8rem;
+    font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.24em;
+    text-transform: uppercase; font-weight: 600; color: var(--pine);
+    display: inline-flex; align-items: center; gap: 0.7rem;
   }
-  .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--ink-mute); }
+  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--sun); border-radius: 2px; }
 
   /* NAV */
-  nav.top { position: sticky; top: 0; z-index: 50; background: rgba(244,241,233,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
-  nav.top .inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.25rem; }
-  .mark { display: flex; align-items: center; gap: 0.75rem; font-family: "Fraunces", serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); border: none; }
-  .mark svg { color: var(--heron); }
+  nav.top { position: sticky; top: 0; z-index: 50; background: rgba(251,250,247,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav.top .inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.95rem 2.25rem; }
+  .mark { display: flex; align-items: center; gap: 0.75rem; font-family: "Fraunces", serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); border: none; }
+  .mark:hover { color: var(--ink); }
+  .mark .peak { width: 38px; height: 38px; background: var(--pine); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+  .mark .peak svg { width: 22px; height: 22px; display: block; }
+  .mark .peak path { stroke: #fff; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .mark-text { line-height: 1; }
-  .mark-text small { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.15rem; }
-  nav.top .links { display: flex; gap: 2rem; }
-  nav.top .links a { font-family: "Inter", sans-serif; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border: none; color: var(--ink-soft); }
-  nav.top .links a:hover { color: var(--heron); }
+  .mark-text small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--mute); margin-top: 0.2rem; }
+  nav.top .links { display: flex; gap: 1.8rem; align-items: center; }
+  nav.top .links a { font-family: "Inter", sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; border: none; color: var(--ink-soft); }
+  nav.top .links a:hover { color: var(--pine); }
   @media (max-width: 720px) { nav.top .links { display: none; } }
 
   /* COORD RIBBON */
-  .coords { background: var(--paper-deep); border-bottom: 1px solid var(--rule); font-family: "Inter", monospace; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--ink-mute); padding: 0.55rem 0; }
+  .coords { background: var(--sage); border-bottom: 1px solid var(--line); font-family: "Inter", monospace; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--mute); padding: 0.55rem 0; }
   .coords .inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; gap: 2rem; padding: 0 2.25rem; flex-wrap: wrap; }
   .coords span + span { color: var(--ink-soft); }
 
   /* HERO */
-  header.hero { padding: 6.5rem 0 4.5rem; position: relative; overflow: hidden; }
+  header.hero { padding: 6rem 0 4.5rem; position: relative; overflow: hidden; }
   header.hero .wrap { position: relative; z-index: 2; }
-  header.hero .eyebrow { margin-bottom: 2.75rem; }
+  header.hero .eyebrow { margin-bottom: 2.5rem; }
   header.hero::before {
     content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
     background-image:
-      radial-gradient(ellipse 900px 260px at 50% 70%, transparent 32%, rgba(61,90,108,0.05) 33%, transparent 34%),
-      radial-gradient(ellipse 1150px 330px at 50% 70%, transparent 38%, rgba(61,90,108,0.04) 39%, transparent 40%),
-      radial-gradient(ellipse 1400px 400px at 50% 70%, transparent 44%, rgba(61,90,108,0.03) 45%, transparent 46%);
+      radial-gradient(ellipse 900px 260px at 50% 70%, transparent 32%, rgba(61,90,63,0.05) 33%, transparent 34%),
+      radial-gradient(ellipse 1150px 330px at 50% 70%, transparent 38%, rgba(61,90,63,0.04) 39%, transparent 40%),
+      radial-gradient(ellipse 1400px 400px at 50% 70%, transparent 44%, rgba(61,90,63,0.03) 45%, transparent 46%);
   }
   header.hero h1 { max-width: 15ch; margin-bottom: 2rem; }
-  header.hero h1 em { color: var(--heron); }
+  header.hero h1 em { color: var(--pine); }
   header.hero .deck {
     max-width: 58ch; font-family: "Fraunces", serif; font-style: italic; font-weight: 400;
-    font-size: clamp(1.2rem, 1.9vw, 1.55rem); line-height: 1.5; color: var(--ink); margin-bottom: 3.5rem;
+    font-size: clamp(1.2rem, 1.9vw, 1.5rem); line-height: 1.5; color: var(--ink); margin-bottom: 3.5rem;
   }
-  header.hero .meta { display: flex; flex-wrap: wrap; gap: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
-  header.hero .meta .item .label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 0.4rem; }
-  header.hero .meta .item .value { font-family: "Fraunces", serif; font-weight: 400; font-size: 1.05rem; color: var(--ink); }
+  header.hero .meta { display: flex; flex-wrap: wrap; gap: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  header.hero .meta .item .label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 600; margin-bottom: 0.4rem; }
+  header.hero .meta .item .value { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.05rem; color: var(--ink); }
 
-  .estuary-art { position: absolute; left: 0; right: 0; bottom: 0; height: 300px; pointer-events: none; z-index: 1; opacity: 0.9; }
+  .estuary-art { position: absolute; left: 0; right: 0; bottom: 0; height: 300px; pointer-events: none; z-index: 1; opacity: 0.9; color: var(--pine); }
   .estuary-art svg { width: 100%; height: 100%; display: block; }
 
   /* SECTIONS */
-  section { padding: 6.5rem 0; position: relative; }
+  section { padding: 6rem 0; position: relative; }
   section.tight { padding: 4.5rem 0; }
-  .rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
-  .section-head { max-width: 720px; margin-bottom: 3.5rem; }
+  .rule { height: 1px; background: var(--line); border: 0; margin: 0; }
+  .section-head { max-width: 720px; margin-bottom: 3.2rem; }
   .section-head .eyebrow { margin-bottom: 1.5rem; }
   .section-head h2 { margin-bottom: 1.25rem; }
 
   /* MANIFESTO */
   .manifesto-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: start; }
   @media (max-width: 900px) { .manifesto-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-  .manifesto p:first-of-type::first-letter { font-family: "Fraunces", serif; font-size: 4.5rem; font-weight: 300; line-height: 0.85; float: left; padding: 0.4rem 0.7rem 0 0; color: var(--heron); }
-  blockquote.pull { margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-family: "Fraunces", serif; font-style: italic; font-size: 1.45rem; line-height: 1.5; color: var(--ink); font-weight: 300; }
-  blockquote.pull cite { display: block; margin-top: 1rem; font-style: normal; font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; }
-  .manifesto-art { aspect-ratio: 4/5; background: var(--paper-deep); display: grid; place-items: center; color: var(--heron); border-radius: 2px; }
+  .manifesto p:first-of-type::first-letter { font-family: "Fraunces", serif; font-size: 4.5rem; font-weight: 300; line-height: 0.85; float: left; padding: 0.4rem 0.7rem 0 0; color: var(--pine); }
+  blockquote.pull { margin: 3rem 0; padding: 1.4rem 1.6rem; background: var(--sage); border-radius: 12px; font-family: "Fraunces", serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--ink); font-weight: 300; }
+  blockquote.pull cite { display: block; margin-top: 1rem; font-style: normal; font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 600; }
+  .manifesto-art { aspect-ratio: 4/5; background: var(--sage); display: grid; place-items: center; color: var(--pine); border-radius: 16px; }
   .manifesto-art svg { width: 75%; max-width: 300px; height: auto; }
 
   /* FIELD MARKS (birds) */
-  .field { background: var(--paper-deep); }
-  .marks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 1rem; }
-  @media (max-width: 900px) { .marks { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+  .field { background: var(--sage); }
+  .marks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 1rem; }
+  @media (max-width: 900px) { .marks { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 520px) { .marks { grid-template-columns: 1fr 1fr; } }
-  .mark-card { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
-  .mark-card .art { height: 88px; color: var(--heron); margin-bottom: 1rem; opacity: 0.85; }
+  .mark-card { background: var(--surface); border-radius: 16px; padding: 1.5rem 1.5rem 1.6rem; box-shadow: 0 1px 3px rgba(34,38,31,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+  .mark-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(34,38,31,0.13); }
+  .mark-card .art { height: 88px; color: var(--pine); margin-bottom: 1rem; opacity: 0.85; }
   .mark-card .art svg { height: 88px; width: auto; }
   .mark-card h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
-  .mark-card .latin { font-family: "Fraunces", serif; font-style: italic; color: var(--ink-mute); font-size: 0.9rem; margin-bottom: 0.6rem; }
-  .mark-card p { font-size: 0.95rem; line-height: 1.55; margin: 0; }
-  .mark-card .season { display: inline-block; margin-top: 0.7rem; font-family: "Inter", sans-serif; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--sedge); }
+  .mark-card .latin { font-family: "Fraunces", serif; font-style: italic; color: var(--mute); font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .mark-card p { font-size: 0.93rem; line-height: 1.55; margin: 0; }
+  .mark-card .season { display: inline-block; margin-top: 0.8rem; font-family: "Inter", sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--sun); background: rgba(201,143,45,0.1); padding: 0.3rem 0.75rem; border-radius: 999px; }
 
   /* PRACTICAL (tide + wind) */
-  .practical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-  @media (max-width: 820px) { .practical-grid { grid-template-columns: 1fr; gap: 2rem; } }
-  .pcard { border: 1px solid var(--rule); border-radius: 2px; padding: 2.25rem; background: var(--paper); }
-  .pcard .pn { font-family: "Fraunces", serif; font-style: italic; color: var(--heron); font-size: 1rem; margin-bottom: 0.75rem; display: block; }
+  .practical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 820px) { .practical-grid { grid-template-columns: 1fr; } }
+  .pcard { border-radius: 16px; padding: 2.25rem; background: var(--surface); box-shadow: 0 1px 3px rgba(34,38,31,0.06); }
+  .pcard .pn { font-family: "Fraunces", serif; font-style: italic; color: var(--sun); font-size: 1.05rem; margin-bottom: 0.75rem; display: block; }
   .pcard h3 { margin-bottom: 1rem; }
   .pcard p { font-size: 1rem; }
   .pcard p:last-child { margin-bottom: 0; }
 
   /* RULES list */
   ul.tenets { list-style: none; padding: 0; margin: 2rem 0 0; }
-  ul.tenets li { padding: 1.1rem 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 32px 1fr; gap: 1rem; align-items: baseline; }
-  ul.tenets li:last-child { border-bottom: 1px solid var(--rule); }
-  ul.tenets li .n { font-family: "Fraunces", serif; font-style: italic; color: var(--ink-mute); font-size: 0.95rem; }
+  ul.tenets li { padding: 1.1rem 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 32px 1fr; gap: 1rem; align-items: baseline; }
+  ul.tenets li:last-child { border-bottom: 1px solid var(--line); }
+  ul.tenets li .n { font-family: "Fraunces", serif; font-style: italic; color: var(--sun); font-size: 1rem; }
   ul.tenets li .t { font-family: "Inter", sans-serif; font-size: 1rem; color: var(--ink); font-weight: 600; letter-spacing: -0.005em; }
-  ul.tenets li .t small { display: block; font-weight: 400; color: var(--ink-soft); margin-top: 0.3rem; font-size: 0.95rem; line-height: 1.55; }
+  ul.tenets li .t small { display: block; font-weight: 400; color: var(--ink-soft); margin-top: 0.3rem; font-size: 0.93rem; line-height: 1.55; }
 
   /* RENTAL FUNNEL */
-  .funnel { background: var(--heron); color: var(--paper); }
-  .funnel .eyebrow { color: rgba(244,241,233,0.7); }
-  .funnel .eyebrow::before { background: rgba(244,241,233,0.5); }
-  .funnel h2 { color: var(--paper); }
-  .funnel p { color: rgba(244,241,233,0.92); }
+  .funnel { background: var(--pine-deep); color: #f2f1ea; }
+  .funnel .eyebrow { color: var(--sun); }
+  .funnel .eyebrow::before { background: var(--sun); }
+  .funnel h2 { color: #fff; }
+  .funnel p { color: #cfd4c6; }
   .funnel .grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
   @media (max-width: 900px) { .funnel .grid { grid-template-columns: 1fr; gap: 2.5rem; } }
-  .funnel .ops-art { aspect-ratio: 1/1; display: grid; place-items: center; border: 1px solid rgba(244,241,233,0.25); border-radius: 2px; color: var(--paper); }
+  .funnel .ops-art { aspect-ratio: 1/1; display: grid; place-items: center; border: 1px solid rgba(242,241,234,0.22); border-radius: 16px; color: #f2f1ea; }
   .funnel .ops-art svg { width: 62%; max-width: 280px; }
-  .pillish { display: inline-block; margin-top: 1.75rem; padding: 0.8rem 1.6rem; border: 1px solid var(--paper); font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--paper); border-radius: 999px; transition: background 0.2s, color 0.2s; }
-  .pillish:hover { background: var(--paper); color: var(--heron); border-color: var(--paper); }
+  .pillish { display: inline-block; margin-top: 1.75rem; padding: 0.9rem 1.7rem; border: none; font-family: "Inter", sans-serif; font-size: 0.84rem; font-weight: 600; color: var(--pine-deep); background: var(--sun); border-radius: 999px; transition: background 0.2s, color 0.2s; }
+  .pillish:hover { background: #fff; color: var(--pine-deep); }
 
   /* COLOPHON */
   .colophon-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 3rem; }
   @media (max-width: 900px) { .colophon-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-  .colophon h4 { font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 1rem; }
+  .colophon h4 { font-family: "Inter", sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 700; margin-bottom: 1rem; }
   .colophon ul { list-style: none; padding: 0; margin: 0; }
-  .colophon ul li { margin-bottom: 0.5rem; font-size: 0.92rem; color: var(--ink-soft); }
+  .colophon ul li { margin-bottom: 0.55rem; font-size: 0.9rem; color: var(--ink-soft); }
   .colophon ul li a { border: none; }
-  .colophon ul li a:hover { color: var(--heron); }
+  .colophon ul li a:hover { color: var(--pine); }
 
-  footer.foot { padding: 3rem 0; border-top: 1px solid var(--rule); font-size: 0.78rem; color: var(--ink-mute); }
+  footer.foot { padding: 3rem 0; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--mute); }
   footer.foot .inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
   footer.foot em { font-family: "Fraunces", serif; font-weight: 400; }
 
@@ -188,12 +187,9 @@
 <nav class="top">
   <div class="inner">
     <a href="#" class="mark">
-      <svg width="34" height="28" viewBox="0 0 34 28" class="line-art" aria-hidden="true">
-        <!-- heron in flight -->
-        <path d="M2 20 Q10 8 17 14 Q24 8 32 20"/>
-        <path d="M17 14 L17 22"/>
-        <path d="M17 22 L21 26"/>
-      </svg>
+      <span class="peak" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg>
+      </span>
       <span class="mark-text">
         The Squamish Estuary
         <small>Skwelwil'em · est. 2026</small>
@@ -393,8 +389,8 @@
       </div>
     </div>
 
-    <p style="margin-top:2.5rem;max-width:64ch;font-size:0.95rem;color:var(--ink-mute);">Also out here, in season: turkey vultures riding the thermals off the Chief, kingfishers rattling between snags, western grebes, and — for the very lucky and very quiet — a peregrine falcon or a green heron, both species at risk. This is their nursery and their pantry. We&rsquo;re guests.</p>
-    <p style="margin-top:1rem;max-width:64ch;font-size:0.95rem;color:var(--ink-mute);">The wildlife doesn&rsquo;t stop at the estuary mouth. For the seals, eagles, and sea life further down the Sound, guided <a href="https://squamishwatertaxi.com/tours.html">Howe Sound wildlife boat tours</a> run out of Squamish — a good next chapter once the canoe has hooked you.</p>
+    <p style="margin-top:2.5rem;max-width:64ch;font-size:0.95rem;color:var(--mute);">Also out here, in season: turkey vultures riding the thermals off the Chief, kingfishers rattling between snags, western grebes, and — for the very lucky and very quiet — a peregrine falcon or a green heron, both species at risk. This is their nursery and their pantry. We&rsquo;re guests.</p>
+    <p style="margin-top:1rem;max-width:64ch;font-size:0.95rem;color:var(--mute);">The wildlife doesn&rsquo;t stop at the estuary mouth. For the seals, eagles, and sea life further down the Sound, guided <a href="https://squamishwatertaxi.com/tours.html">Howe Sound wildlife boat tours</a> run out of Squamish — a good next chapter once the canoe has hooked you.</p>
   </div>
 </section>
 
@@ -414,14 +410,14 @@
         <span class="pn">i.</span>
         <h3>Go on a high, rising tide.</h3>
         <p>At low tide the channels drain to mud and you&rsquo;ll be dragging a canoe across a flat. Launch within an hour or two of high tide so there&rsquo;s water in the grass, and aim to be heading back <em>as the tide comes in</em> — the flood carries you home instead of stranding you.</p>
-        <p style="font-size:0.9rem;color:var(--ink-mute);margin-top:1rem;">Check any Howe Sound / Squamish tide table before you go. A 4&nbsp;m+ high is comfortable; a low high tide is a short window.</p>
+        <p style="font-size:0.9rem;color:var(--mute);margin-top:1rem;">Check any Howe Sound / Squamish tide table before you go. A 4&nbsp;m+ high is comfortable; a low high tide is a short window.</p>
       </div>
 
       <div class="pcard">
         <span class="pn">ii.</span>
         <h3>Beat the wind. Paddle the morning.</h3>
         <p>Squamish isn&rsquo;t the kiteboarding capital of Canada by accident. Most summer afternoons a strong inflow wind builds up the sound and turns flat water into whitecaps and hard work. Mornings and evenings are glass. Be off the water before the afternoon wind fills in.</p>
-        <p style="font-size:0.9rem;color:var(--ink-mute);margin-top:1rem;">If there are kites and sails out on the Spit, that&rsquo;s your cue the wind&rsquo;s up. Stay clear of the windsports zone — they have right of way and a lot more speed.</p>
+        <p style="font-size:0.9rem;color:var(--mute);margin-top:1rem;">If there are kites and sails out on the Spit, that&rsquo;s your cue the wind&rsquo;s up. Stay clear of the windsports zone — they have right of way and a lot more speed.</p>
       </div>
 
       <div class="pcard">
@@ -466,7 +462,7 @@
       <div>
         <span class="eyebrow">§ V &nbsp;·&nbsp; The Easiest Way Onto It</span>
         <h2 style="margin-top:1.5rem;">Borrow a real canoe. We&rsquo;ll meet you at the water.</h2>
-        <p style="margin-top:1.5rem;">The estuary is the perfect first paddle — flat, close to town, and stunning — which is exactly why it deserves a proper canoe rather than a flimsy inflatable that the afternoon Squamish wind will treat like a kite. <strong style="color:var(--paper);">Squamish Canoe Rental</strong> delivers a stable, ready-to-go canoe — paddles, lifejackets, bailer, and whistle included — so all you have to do is read the tide and show up.</p>
+        <p style="margin-top:1.5rem;">The estuary is the perfect first paddle — flat, close to town, and stunning — which is exactly why it deserves a proper canoe rather than a flimsy inflatable that the afternoon Squamish wind will treat like a kite. <strong style="color:#fff;">Squamish Canoe Rental</strong> delivers a stable, ready-to-go canoe — paddles, lifejackets, bailer, and whistle included — so all you have to do is read the tide and show up.</p>
         <p>Up to three paddlers per canoe. Delivered to the water, or pick up and drop off at their Squamish base if you&rsquo;d rather grab the gear yourself. Locally owned, five-star reviewed, and run by people who actually paddle this estuary and can tell you exactly when the tide&rsquo;s right.</p>
         <a href="https://squamishcanoerental.com/" class="pillish">Rent a canoe at squamishcanoerental.com</a>
       </div>
