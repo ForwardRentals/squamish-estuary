@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Paddling the Mamquam Blind Channel: Squamish&#x27;s Downtown Flatwater</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Paddling the Mamquam Blind Channel in Squamish, BC: a calm tidal channel behind downtown with mountain views. Tide timing, boat traffic, wind, safety and how to get a canoe or paddleboard there.">
+<link rel="canonical" href="https://squamishestuary.ca/paddling-mamquam-blind-channel.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --sage: #eef1ea;
+    --line: #e3e1d8;
+    --ink: #22261f;
+    --ink-soft: #4c5245;
+    --mute: #8b9083;
+    --pine: #3d5a3f;
+    --pine-deep: #2c4230;
+    --sun: #c98f2d;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 17px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--pine); color: #fff; }
+
+  a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.2s, color 0.2s; }
+  a:hover { border-bottom-color: var(--pine); color: var(--pine); }
+
+  h1, h2, h3, h4, .display {
+    font-family: "Fraunces", "Times New Roman", serif; color: var(--ink);
+    font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0;
+    font-variation-settings: "opsz" 144;
+  }
+  h1 { font-size: clamp(3rem, 8vw, 6.2rem); letter-spacing: -0.025em; }
+  h2 { font-size: clamp(1.9rem, 4.2vw, 3.1rem); letter-spacing: -0.022em; }
+  h3 { font-size: 1.4rem; font-weight: 600; line-height: 1.22; letter-spacing: -0.012em; }
+  em, .italic { font-style: italic; font-weight: 400; }
+
+  p { margin: 0 0 1.15rem; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.68; }
+  p.lead {
+    font-family: "Fraunces", serif; font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+    line-height: 1.45; color: var(--ink); font-weight: 400; letter-spacing: -0.01em; margin-bottom: 2rem;
+  }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 2.25rem; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 2.25rem; }
+
+  .eyebrow {
+    font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.24em;
+    text-transform: uppercase; font-weight: 600; color: var(--pine);
+    display: inline-flex; align-items: center; gap: 0.7rem;
+  }
+  .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--sun); border-radius: 2px; }
+
+  /* NAV */
+  nav.top { position: sticky; top: 0; z-index: 50; background: rgba(251,250,247,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav.top .inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.95rem 2.25rem; }
+  .mark { display: flex; align-items: center; gap: 0.75rem; font-family: "Fraunces", serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); border: none; }
+  .mark:hover { color: var(--ink); }
+  .mark .peak { width: 38px; height: 38px; background: var(--pine); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+  .mark .peak svg { width: 22px; height: 22px; display: block; }
+  .mark .peak path { stroke: #fff; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .mark-text { line-height: 1; }
+  .mark-text small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--mute); margin-top: 0.2rem; }
+  nav.top .links { display: flex; gap: 1.8rem; align-items: center; }
+  nav.top .links a { font-family: "Inter", sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; border: none; color: var(--ink-soft); }
+  nav.top .links a:hover { color: var(--pine); }
+  @media (max-width: 720px) { nav.top .links { display: none; } }
+
+  /* COORD RIBBON */
+  .coords { background: var(--sage); border-bottom: 1px solid var(--line); font-family: "Inter", monospace; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--mute); padding: 0.55rem 0; }
+  .coords .inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; gap: 2rem; padding: 0 2.25rem; flex-wrap: wrap; }
+  .coords span + span { color: var(--ink-soft); }
+
+  /* HERO */
+  header.hero { padding: 6rem 0 4.5rem; position: relative; overflow: hidden; }
+  header.hero .wrap { position: relative; z-index: 2; }
+  header.hero .eyebrow { margin-bottom: 2.5rem; }
+  header.hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      radial-gradient(ellipse 900px 260px at 50% 70%, transparent 32%, rgba(61,90,63,0.05) 33%, transparent 34%),
+      radial-gradient(ellipse 1150px 330px at 50% 70%, transparent 38%, rgba(61,90,63,0.04) 39%, transparent 40%),
+      radial-gradient(ellipse 1400px 400px at 50% 70%, transparent 44%, rgba(61,90,63,0.03) 45%, transparent 46%);
+  }
+  header.hero h1 { max-width: 15ch; margin-bottom: 2rem; }
+  header.hero h1 em { color: var(--pine); }
+  header.hero .deck {
+    max-width: 58ch; font-family: "Fraunces", serif; font-style: italic; font-weight: 400;
+    font-size: clamp(1.2rem, 1.9vw, 1.5rem); line-height: 1.5; color: var(--ink); margin-bottom: 3.5rem;
+  }
+  header.hero .meta { display: flex; flex-wrap: wrap; gap: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  header.hero .meta .item .label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 600; margin-bottom: 0.4rem; }
+  header.hero .meta .item .value { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.05rem; color: var(--ink); }
+
+  .estuary-art { position: absolute; left: 0; right: 0; bottom: 0; height: 300px; pointer-events: none; z-index: 1; opacity: 0.9; color: var(--pine); }
+  .estuary-art svg { width: 100%; height: 100%; display: block; }
+
+  /* SECTIONS */
+  section { padding: 6rem 0; position: relative; }
+  section.tight { padding: 4.5rem 0; }
+  .rule { height: 1px; background: var(--line); border: 0; margin: 0; }
+  .section-head { max-width: 720px; margin-bottom: 3.2rem; }
+  .section-head .eyebrow { margin-bottom: 1.5rem; }
+  .section-head h2 { margin-bottom: 1.25rem; }
+
+  /* MANIFESTO */
+  .manifesto-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: start; }
+  @media (max-width: 900px) { .manifesto-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .manifesto p:first-of-type::first-letter { font-family: "Fraunces", serif; font-size: 4.5rem; font-weight: 300; line-height: 0.85; float: left; padding: 0.4rem 0.7rem 0 0; color: var(--pine); }
+  blockquote.pull { margin: 3rem 0; padding: 1.4rem 1.6rem; background: var(--sage); border-radius: 12px; font-family: "Fraunces", serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--ink); font-weight: 300; }
+  blockquote.pull cite { display: block; margin-top: 1rem; font-style: normal; font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 600; }
+  .manifesto-art { aspect-ratio: 4/5; background: var(--sage); display: grid; place-items: center; color: var(--pine); border-radius: 16px; }
+  .manifesto-art svg { width: 75%; max-width: 300px; height: auto; }
+
+  /* FIELD MARKS (birds) */
+  .field { background: var(--sage); }
+  .marks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 1rem; }
+  @media (max-width: 900px) { .marks { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .marks { grid-template-columns: 1fr 1fr; } }
+  .mark-card { background: var(--surface); border-radius: 16px; padding: 1.5rem 1.5rem 1.6rem; box-shadow: 0 1px 3px rgba(34,38,31,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+  .mark-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(34,38,31,0.13); }
+  .mark-card .art { height: 88px; color: var(--pine); margin-bottom: 1rem; opacity: 0.85; }
+  .mark-card .art svg { height: 88px; width: auto; }
+  .mark-card h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
+  .mark-card .latin { font-family: "Fraunces", serif; font-style: italic; color: var(--mute); font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .mark-card p { font-size: 0.93rem; line-height: 1.55; margin: 0; }
+  .mark-card .season { display: inline-block; margin-top: 0.8rem; font-family: "Inter", sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--sun); background: rgba(201,143,45,0.1); padding: 0.3rem 0.75rem; border-radius: 999px; }
+
+  /* PRACTICAL (tide + wind) */
+  .practical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 820px) { .practical-grid { grid-template-columns: 1fr; } }
+  .pcard { border-radius: 16px; padding: 2.25rem; background: var(--surface); box-shadow: 0 1px 3px rgba(34,38,31,0.06); }
+  .pcard .pn { font-family: "Fraunces", serif; font-style: italic; color: var(--sun); font-size: 1.05rem; margin-bottom: 0.75rem; display: block; }
+  .pcard h3 { margin-bottom: 1rem; }
+  .pcard p { font-size: 1rem; }
+  .pcard p:last-child { margin-bottom: 0; }
+
+  /* RULES list */
+  ul.tenets { list-style: none; padding: 0; margin: 2rem 0 0; }
+  ul.tenets li { padding: 1.1rem 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 32px 1fr; gap: 1rem; align-items: baseline; }
+  ul.tenets li:last-child { border-bottom: 1px solid var(--line); }
+  ul.tenets li .n { font-family: "Fraunces", serif; font-style: italic; color: var(--sun); font-size: 1rem; }
+  ul.tenets li .t { font-family: "Inter", sans-serif; font-size: 1rem; color: var(--ink); font-weight: 600; letter-spacing: -0.005em; }
+  ul.tenets li .t small { display: block; font-weight: 400; color: var(--ink-soft); margin-top: 0.3rem; font-size: 0.93rem; line-height: 1.55; }
+
+  /* RENTAL FUNNEL */
+  .funnel { background: var(--pine-deep); color: #f2f1ea; }
+  .funnel .eyebrow { color: var(--sun); }
+  .funnel .eyebrow::before { background: var(--sun); }
+  .funnel h2 { color: #fff; }
+  .funnel p { color: #cfd4c6; }
+  .funnel .grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
+  @media (max-width: 900px) { .funnel .grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .funnel .ops-art { aspect-ratio: 1/1; display: grid; place-items: center; border: 1px solid rgba(242,241,234,0.22); border-radius: 16px; color: #f2f1ea; }
+  .funnel .ops-art svg { width: 62%; max-width: 280px; }
+  .pillish { display: inline-block; margin-top: 1.75rem; padding: 0.9rem 1.7rem; border: none; font-family: "Inter", sans-serif; font-size: 0.84rem; font-weight: 600; color: var(--pine-deep); background: var(--sun); border-radius: 999px; transition: background 0.2s, color 0.2s; }
+  .pillish:hover { background: #fff; color: var(--pine-deep); }
+
+  /* COLOPHON */
+  .colophon-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 3rem; }
+  @media (max-width: 900px) { .colophon-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  .colophon h4 { font-family: "Inter", sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); font-weight: 700; margin-bottom: 1rem; }
+  .colophon ul { list-style: none; padding: 0; margin: 0; }
+  .colophon ul li { margin-bottom: 0.55rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .colophon ul li a { border: none; }
+  .colophon ul li a:hover { color: var(--pine); }
+
+  footer.foot { padding: 3rem 0; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--mute); }
+  footer.foot .inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  footer.foot em { font-family: "Fraunces", serif; font-weight: 400; }
+
+  .line-art { stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+<style>
+  .post-head { padding: 2.5rem 0 1.5rem; }
+  .post-head .kicker { font-family: "Inter", sans-serif; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; color: var(--pine); margin-bottom: 1rem; }
+  .post-head h1 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); margin-bottom: 1rem; }
+  .post-head .dek { font-size: 1.15rem; color: var(--ink-soft); max-width: 640px; }
+  .post-crumb { padding: 1.5rem 0 0; font-size: 0.78rem; color: var(--mute); }
+  .post-crumb a { color: var(--mute); border-bottom: 0; }
+  .post-body { padding: 1rem 0 3rem; }
+  .post-body h2 { margin: 2.6rem 0 1rem; }
+  .post-body h3 { margin: 1.8rem 0 0.6rem; }
+  .post-body ul, .post-body ol { padding-left: 1.3rem; margin: 0 0 1.2rem; }
+  .post-body li { color: var(--ink-soft); margin-bottom: 0.45rem; line-height: 1.65; }
+  .post-body a { border-bottom: 1px solid var(--pine); }
+  .post-body .note { background: var(--sage); border-radius: 12px; padding: 1.1rem 1.3rem; margin: 1.6rem 0; }
+  .post-body .note p:last-child { margin: 0; }
+  .post-more { border-top: 1px solid var(--line); padding: 2.5rem 0 3.5rem; }
+  .post-more h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .post-more ul { list-style: none; padding: 0; margin: 0; }
+  .post-more li { padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+  .post-more a { border-bottom: 0; color: var(--ink); font-family: "Fraunces", serif; font-size: 1.1rem; }
+  .post-more a:hover { color: var(--pine); }
+  .post-faq { margin-top: 2.5rem; }
+  .post-faq h3 { font-size: 1.1rem; }
+</style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paddling the Mamquam Blind Channel: Squamish&#x27;s Downtown Flatwater">
+<meta property="og:description" content="Paddling the Mamquam Blind Channel in Squamish, BC: a calm tidal channel behind downtown with mountain views. Tide timing, boat traffic, wind, safety and how to get a canoe or paddleboard there.">
+<meta property="og:url" content="https://squamishestuary.ca/paddling-mamquam-blind-channel.html">
+<meta property="og:image" content="">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Paddling the Mamquam Blind Channel: Squamish's Downtown Flatwater",
+  "description": "Paddling the Mamquam Blind Channel in Squamish, BC: a calm tidal channel behind downtown with mountain views. Tide timing, boat traffic, wind, safety and how to get a canoe or paddleboard there.",
+  "image": "",
+  "datePublished": "2026-10-21",
+  "dateModified": "2026-10-21",
+  "author": {
+    "@type": "Organization",
+    "name": "Sea to Sky Trails"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sea to Sky Trails"
+  },
+  "mainEntityOfPage": "https://squamishestuary.ca/paddling-mamquam-blind-channel.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is the Mamquam Blind Channel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's a calm tidal channel that runs along the back of downtown Squamish toward the head of Howe Sound, close to the harbour and the estuary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Mamquam Blind Channel good for beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, on a calm day at the right tide it's sheltered flatwater. Watch for boat traffic near the harbour, wear a PFD, and avoid windy afternoons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rent a canoe or paddleboard for the Blind Channel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Squamish Canoe Rental delivers canoes and paddleboards to the Mamquam Blind Channel, or you can pick up gear at their Squamish base."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="top">
+  <div class="inner">
+    <a href="./" class="mark">
+      <span class="peak" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 18 L9 8 L12 12 L16 5 L21 18"/></svg>
+      </span>
+      <span class="mark-text">
+        The Squamish Estuary
+        <small>Skwelwil'em · est. 2026</small>
+      </span>
+    </a>
+    <div class="links">
+      <a href="./#the-place">The Place</a>
+      <a href="./#birds">The Birds</a>
+      <a href="./#paddle">How to Paddle It</a>
+      <a href="./#rent">Rent a Canoe</a>
+    </div>
+  </div>
+</nav>
+<!--POST-->
+<div class="wrap-narrow">
+  <div class="post-crumb"><a href="./">The Squamish Estuary</a> &nbsp;/&nbsp; Field Notes</div>
+  <header class="post-head">
+    <div class="kicker">Field Notes &middot; The Squamish Estuary</div>
+    <h1>Paddling the Mamquam Blind Channel</h1>
+    <p class="dek">A calm tidal channel right behind downtown Squamish, a short paddle from coffee. What to expect, how to time it, and how to share it with boats.</p>
+  </header>
+  <article class="post-body">
+
+<p>Most Squamish paddles need a drive. The Mamquam Blind Channel doesn't. It's a calm, tidal channel tucked behind downtown, with mountain views and a coffee shop a few minutes away. It's the easy, close-to-home cousin of the estuary.</p>
+
+<h2>What it's like</h2>
+<p>Narrow and sheltered, with forest and town on either side and mountains in the background. It's flatwater on a calm day, which makes it a good spot for a first paddleboard session, a quick evening paddle, or an hour before work.</p>
+
+<h2>It's tidal</h2>
+<p>Like the estuary, the channel rises and falls with the tide. At higher tides there's more water, easier launching and more channel to explore. At low tide, edges turn to mud and some areas get shallow. Check the tide table (see <a href="squamish-estuary-tide-guide.html">reading the tide</a>) and aim for a window around high tide.</p>
+
+<h2>Share it with boats</h2>
+<p>The southern end of the channel is near the harbour and marinas, so you'll share the water with powerboats.</p>
+<ul>
+  <li>Stay to the side of the channel and out of the way of boats.</li>
+  <li>Be visible. Bright clothing helps.</li>
+  <li>Carry a whistle (required in Canada on a canoe or paddleboard, along with a PFD).</li>
+  <li>Turn your bow into larger wakes rather than taking them side-on.</li>
+</ul>
+
+<h2>Wind</h2>
+<p>The channel is more sheltered than open Howe Sound, but Squamish's summer afternoon winds can still push you around near the open end. Mornings and evenings are calmest. If you see kites out on the Spit, the wind is up.</p>
+
+<h2>Safety basics</h2>
+<ul>
+  <li>PFD on, done up. The water is cold salt water year-round.</li>
+  <li>Dress for immersion in cooler months.</li>
+  <li>Tell someone your plan.</li>
+  <li>Stay off the water in fog or strong wind.</li>
+</ul>
+
+<h2>Combine it with the estuary</h2>
+<p>Comfortable paddlers on a big tide and a calm day can explore further toward the estuary channels. If you do, the house rules of a refuge apply: keep to open channels, give birds a wide berth, and stay out of the sedge. See <a href="birdwatching-squamish-estuary.html">birdwatching in the estuary</a>.</p>
+
+<h2>Getting a boat there</h2>
+<p><a href="https://squamishcanoerental.com/">Squamish Canoe Rental</a> delivers canoes and paddleboards to the Mamquam Blind Channel, with paddles, PFDs and safety gear included, or you can pick up at their Squamish base.</p>
+
+<div class="post-faq"><h2>Questions</h2><h3>Where is the Mamquam Blind Channel?</h3><p>It's a calm tidal channel that runs along the back of downtown Squamish toward the head of Howe Sound, close to the harbour and the estuary.</p><h3>Is the Mamquam Blind Channel good for beginners?</h3><p>Yes, on a calm day at the right tide it's sheltered flatwater. Watch for boat traffic near the harbour, wear a PFD, and avoid windy afternoons.</p><h3>Can I rent a canoe or paddleboard for the Blind Channel?</h3><p>Yes. Squamish Canoe Rental delivers canoes and paddleboards to the Mamquam Blind Channel, or you can pick up gear at their Squamish base.</p></div>
+  </article>
+  <nav class="post-more" aria-label="More field notes">
+    <h2>More field notes</h2>
+    <ul><li><a href="squamish-estuary-tide-guide.html">Reading the Tide for the Estuary</a></li><li><a href="birdwatching-squamish-estuary.html">Birdwatching in the Squamish Estuary</a></li><li><a href="./">The The Squamish Estuary field guide</a></li></ul>
+  </nav>
+</div>
+
+<footer class="foot">
+  <div class="wrap inner">
+    <div><em>The Squamish Estuary</em> &middot; Skwelwil&rsquo;em &middot; Volume I, No. 07, 2026 &middot; Published in Sḵwx̱wú7mesh territory.</div>
+    <div>&copy; 2026 · Part of Sea to Sky Trails · Set in Fraunces &amp; Inter.</div>
+  </div>
+</footer>
+
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "16dce1cb8189438cac559feebd6398cc"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
